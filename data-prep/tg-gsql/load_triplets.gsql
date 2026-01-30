@@ -1,0 +1,13 @@
+USE GRAPH CapMarkets
+CREATE LOADING JOB load_triplets FOR GRAPH CapMarkets {
+      DEFINE FILENAME MyDataSource = "/home/tigergraph/data-prep/output/triplets/";
+      LOAD MyDataSource TO VERTEX Event VALUES($6, $7) USING SEPARATOR=",", HEADER="true", EOL="\n";
+      LOAD MyDataSource TO VERTEX Entity VALUES($4, $5) USING SEPARATOR=",", HEADER="true", EOL="\n";
+      LOAD MyDataSource TO EDGE Has_Action VALUES($4, $6, $8) USING SEPARATOR=",", HEADER="true", EOL="\n";
+      LOAD MyDataSource TO EDGE Contains_Entity VALUES($3, $4) USING SEPARATOR=",", HEADER="true", EOL="\n";
+      LOAD MyDataSource TO EDGE Contains_Event VALUES($3, $6) USING SEPARATOR=",", HEADER="true", EOL="\n";
+    }
+
+RUN LOADING JOB load_triplets
+
+DROP JOB load_triplets

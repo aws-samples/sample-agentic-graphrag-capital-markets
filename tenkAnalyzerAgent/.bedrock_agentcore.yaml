@@ -1,0 +1,16 @@
+default_agent: tenkAnalyzerAgent_Agent
+is_agentcore_create_with_iac: true
+agents:
+  tenkAnalyzerAgent_Agent:
+    name: tenkAnalyzerAgent_Agent
+    entrypoint: ./src/main.py
+    deployment_type: container
+    source_path: ./src
+    aws:
+      account: null
+      region: null
+    bedrock_agentcore:
+      agent_id: null
+      agent_arn: null
+      agent_session_id: null
+    is_generated_by_agentcore_create: true

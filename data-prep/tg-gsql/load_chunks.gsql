@@ -1,0 +1,11 @@
+USE GRAPH CapMarkets
+CREATE LOADING JOB load_chunks FOR GRAPH CapMarkets {
+      DEFINE FILENAME MyDataSource = "/home/tigergraph/data-prep/output/chunks/";
+      LOAD MyDataSource TO VERTEX Document VALUES($0) USING SEPARATOR=",", HEADER="true", EOL="\n", QUOTE="double";
+      LOAD MyDataSource TO VERTEX Chunk VALUES($3, $4) USING SEPARATOR=",", HEADER="true", EOL="\n", QUOTE="double";
+      LOAD MyDataSource TO EDGE Has_Child VALUES($0, $3) USING SEPARATOR=",", HEADER="true", EOL="\n", QUOTE="double";
+    }
+
+RUN LOADING JOB load_chunks
+
+DROP JOB load_chunks
