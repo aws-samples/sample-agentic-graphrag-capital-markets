@@ -57,6 +57,8 @@ Download TigerGraph Community Edition Docker Image from [TigerGraph Downloads](h
 
 Download the triplet dataset from [KG-Financial-Datasets-SP-100](https://anonymous.4open.science/r/KG-Financial-Datasets-SP-100-529B/README.md)
 
+> **Note:** The data is also available on [HuggingFace (FinReflectKG)](https://huggingface.co/datasets/domyn/FinReflectKG) if the primary source is unavailable. Format conversion may be required.
+
 Then run:
 
 ```bash
@@ -404,7 +406,7 @@ npm install
 
 This sample uses the following external data sources:
 
-- **Graph Data**: [KG-Financial-Datasets-SP-100](https://anonymous.4open.science/r/KG-Financial-Datasets-SP-100-529B/README.md) - Knowledge graph triplets extracted from 10-K filings. Users download this dataset directly from the source and are responsible for compliance with the dataset's terms of use.
+- **Graph Data**: [KG-Financial-Datasets-SP-100](https://anonymous.4open.science/r/KG-Financial-Datasets-SP-100-529B/README.md) - Knowledge graph triplets extracted from 10-K filings. Users download this dataset directly from the source and are responsible for compliance with the dataset's terms of use. **Alternate source:** [HuggingFace (FinReflectKG)](https://huggingface.co/datasets/domyn/FinReflectKG) - format conversion may be required.
 
 - **10-K Documents**: Downloaded from [SEC EDGAR](https://www.sec.gov/edgar/searchedgar/companysearch) - Public SEC filings retrieved via the `get-tenks.py` script. Users are responsible for compliance with [SEC Terms of Use](https://www.sec.gov/os/webmaster-faq#code-support).
 
